@@ -1,0 +1,74 @@
+<!--
+* Name : FreeTime Tracker game remove html
+* Author: Amber Miller
+* Created : 12/5/2023
+* Course: CIS 152 - Data Structure
+* Version: 1.0
+* OS: MAC OS Ventura 13.5.1
+* IDE: PyCharm 2023.2.1 (Professional Edition) Version
+* Copyright : This is my own original work
+* based on specifications issued by our instructor
+* Description : html page where users can delete games from the game map. Users will receive error if
+* game isn't in the map
+*
+* Academic Honesty: I attest that this is my original work.
+* I have not used unauthorized source code, either modified or
+* unmodified. I have not given other fellow student(s) access
+* to my program.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Video Game from Tracker</title>
+    <link rel="stylesheet" href="/static/css.css">
+</head>
+<body>
+<header>
+        <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('gameHome') }}">Video Game Home</a></li>
+            <li><a href="{{ url_for('crochetHome') }}">Crochet Home</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <!-- flask if statement to display error if error exists. Does not display if error is None -->
+    {%  if  error %}
+ 	<p> Error : {{error}}</p>
+ 	{% endif %}
+<div class="flex-container" id="option">
+    <!-- form to delete a game from the map -->
+    <form action="{{ url_for("gameRemove")}}" method="post">
+        <label for="gameSelect">Enter game to delete:</label>
+        <input type="text" id="gameSelect" name="gameSelect">
+        <button type="submit">Submit</button>
+    </form>
+    <!-- table to display all map key/value pairs -->
+    <table>
+        <tr>
+            <th>Game Name</th>
+            <th>Priority Rank</th>
+        </tr>
+        <!-- flask for loop to display all keys and values in the table -->
+        {% for key, value in g_list.items() %}
+            <tr>
+                <td>
+                    {{ key }}
+                </td>
+                <td>
+                    {{ value }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+</main>
+<footer>
+    <p><em>All images sourced from Pixabay and utilized under free use licensing agreement</em></p>
+    <a href="https://pixabay.com/service/license-summary/">Pixabay Content License</a>
+</footer>
+</body>
+</html>

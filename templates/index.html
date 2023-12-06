@@ -1,0 +1,59 @@
+<!--
+* Name : FreeTime Tracker index html
+* Author: Amber Miller
+* Created : 12/5/2023
+* Course: CIS 152 - Data Structure
+* Version: 1.0
+* OS: MAC OS Ventura 13.5.1
+* IDE: PyCharm 2023.2.1 (Professional Edition) Version
+* Copyright : This is my own original work
+* based on specifications issued by our instructor
+* Description : Index file that the user will first see while running the program. Offers direction to the
+* two data structure home pages
+*
+* Academic Honesty: I attest that this is my original work.
+* I have not used unauthorized source code, either modified or
+* unmodified. I have not given other fellow student(s) access
+* to my program.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Time Tracker</title>
+    <link rel="stylesheet" href="/static/css.css">
+</head>
+<body>
+<header>
+        <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('gameHome') }}">Video Game Home</a></li>
+            <li><a href="{{ url_for('crochetHome') }}">Crochet Home</a></li>
+        </ul>
+    </nav>
+</header>
+    <div>
+        <h1>Welcome to the Free Time Tracker!</h1>
+        <p>This program helps the busy college student or any other individual keep track of all the activities they had put
+        off when they were busy.</p>
+        <br>
+        <h2>Select an activity</h2>
+    </div>
+    <div class="flex-container">
+        <!-- divs for user to select if they want to select the crochet stack or the games map -->
+        <div id="option">
+            <h2>Video Games</h2>
+            <a href="{{ url_for('gameHome') }}"><img src="/static/controllerIMG.png" alt="video game controller"></a>
+        </div>
+        <div id="option">
+            <h2>Crochet</h2>
+            <a href="{{ url_for('crochetHome') }}"><img src="/static/crochetIMG.jpeg" alt="yarn and crochet hook"></a>
+        </div>
+    </div>
+<footer>
+    <p><em>All images sourced from Pixabay and utilized under free use licensing agreement</em></p>
+    <a href="https://pixabay.com/service/license-summary/">Pixabay Content License</a>
+</footer>
+</body>
+</html>

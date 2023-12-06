@@ -1,0 +1,68 @@
+<!--
+* Name : FreeTime Tracker games (Map structure) home html
+* Author: Amber Miller
+* Created : 12/5/2023
+* Course: CIS 152 - Data Structure
+* Version: 1.0
+* OS: MAC OS Ventura 13.5.1
+* IDE: PyCharm 2023.2.1 (Professional Edition) Version
+* Copyright : This is my own original work
+* based on specifications issued by our instructor
+* Description : Home page of the games (Map) functionality. User can add, remove, and view all data within Map
+*
+* Academic Honesty: I attest that this is my original work.
+* I have not used unauthorized source code, either modified or
+* unmodified. I have not given other fellow student(s) access
+* to my program.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Game Tracker</title>
+    <link rel="stylesheet" href="/static/css.css">
+</head>
+<body>
+<header>
+        <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('gameHome') }}">Video Game Home</a></li>
+            <li><a href="{{ url_for('crochetHome') }}">Crochet Home</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <!-- flask if statement to display error if error exists. Does not display if error is None -->
+    {%  if  error %}
+ 	<p> Error : {{error}}</p>
+ 	{% endif %}
+    <div>
+        <h1>Welcome to the games page!</h1>
+        <br>
+        <h2>What would you like to do?</h2>
+    </div>
+    <div class="flex-container">
+        <!-- divs for user to select what they want to do with the games map -->
+        <div id="option">
+            <h2>Add a game</h2>
+            <a href="{{ url_for('gameAdd') }}"><img src="/static/addIMG.png" alt="plus sign"></a>
+        </div>
+        <div id="option">
+            <h2>Remove a game</h2>
+            <a href="{{ url_for('gameRemove') }}"><img src="/static/removeIMG.png" alt="red x"></a>
+        </div>
+        <div id="option">
+            <h2>View current game list</h2>
+            <a href="{{ url_for('gameList') }}"><img src="/static/viewIMG.png" alt="paper and pencil list"></a>
+        </div>
+    </div>
+</main>
+<footer>
+    <p><em>All images sourced from Pixabay and utilized under free use licensing agreement</em></p>
+    <a href="https://pixabay.com/service/license-summary/">Pixabay Content License</a>
+</footer>
+</body>
+
+</html>
